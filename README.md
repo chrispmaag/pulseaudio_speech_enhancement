@@ -42,9 +42,9 @@ Contributions are what make the open source community such an amazing place to b
 
 ## Contact
 
-Jorge Sierra - [@sierrajur](https://twitter.com/sierrajur) - jsierra.jur@gmail.com
-Leo Tanenbaum-Diaz
-Chris Pontarolo-Maag - [@twitter_handle](https://twitter.com/twitter_handle) - chrispmaag@gmail.com
+- Leo Tanenbaum-Diaz
+- Chris Pontarolo-Maag - [@twitter_handle](https://twitter.com/twitter_handle) - chrispmaag@gmail.com
+- Jorge Sierra - [@sierrajur](https://twitter.com/sierrajur) - jsierra.jur@gmail.com
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
