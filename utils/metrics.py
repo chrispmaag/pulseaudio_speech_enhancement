@@ -14,4 +14,4 @@ def pesq_score(y_true: np.array, y_pred: np.array, samplerate=16000, mode='wb') 
     Returns:
         float: The pesq score between `y_true` and `y_pred`.
     """
-    return pesq(ref=y_true, deg=y_pred, rate=samplerate, mode=mode, on_error=PesqError.RETURN_VALUES)
+    return pesq(ref=y_true, deg=y_pred, rate=samplerate, mode=mode)
