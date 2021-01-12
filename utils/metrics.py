@@ -1,5 +1,5 @@
 import numpy as np
-from pesq import pesq, PesqError
+from pesq import pesq
 
 
 def pesq_score(y_true: np.array, y_pred: np.array, samplerate=16000, mode='wb') -> float:
