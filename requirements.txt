@@ -1,1 +1,2 @@
 sounddevice==0.4.1
+pesq==0.0.2

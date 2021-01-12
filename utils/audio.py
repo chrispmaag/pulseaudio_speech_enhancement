@@ -26,8 +26,9 @@ def play(data: np.array, samplerate=48000) -> None:
     TODO: Implement output device selection.
 
     Args:
-        data (np.array): A numpy array of dimensions [samplerate*length, channels]
+        data (np.array): A numpy array of dimensions (samplerate*length, channels).
         samplerate (int, optional): Sampling of the input data in Hertz. Defaults to 48000.
     """
     sd.play(data, samplerate)
     status = sd.wait()
+ 
