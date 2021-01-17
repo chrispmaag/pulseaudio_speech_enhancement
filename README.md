@@ -1,6 +1,13 @@
 # Pulse
 
-Speech enhancement on audio files.
+Real-time speech enhancement for noisy calls. 
+
+Why?
+For your business partners, family members, or  friends, background noise can be distracting, unprofessional, and make understanding difficult. What if we could remove the background noise, enabling you to focus and understand exactly what your teammate is sharing? 
+
+There would be fewer misunderstandings/mistakes and faster communication so everyone gets time back in their schedules, and less mental fatigue from all-day Zoom meetings.
+
+We're excited to share a deployed deep learning solution for real-time speech enhancement.
 
 Data Sets:
 - [Valentini](https://datashare.is.ed.ac.uk/handle/10283/2791)
