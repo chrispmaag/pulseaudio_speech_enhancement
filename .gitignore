@@ -2,3 +2,6 @@
 __pycache*
 *.swp
 .DS_*
+aws
+data
+.vscode
