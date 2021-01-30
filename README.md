@@ -12,7 +12,7 @@ Data Sets:
 - [Deep Noise Suppression (DNS)](https://github.com/microsoft/DNS-Challenge)
 
 Metrics:
-- Perceptual Evaluation of Speech Quality (PESQ)
+- [Perceptual Evaluation of Speech Quality (PESQ)](https://en.wikipedia.org/wiki/Perceptual_Evaluation_of_Speech_Quality)
 - Short Term Objective Intelligibility (STOI)
 
 ## Installation
