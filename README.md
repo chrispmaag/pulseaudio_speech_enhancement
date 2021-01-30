@@ -1,18 +1,15 @@
-# Pulse
+# Pulse Audio Real-Time Speech Enhancement
+### Real-time speech enhancement for noisy calls. 
 
-Real-time speech enhancement for noisy calls. 
+For your business partners, family members, or friends, background noise in conference calls can be distracting, unprofessional, and make understanding difficult. With working remotely becoming more common, it’s critical that people can work efficiently and productively from wherever they choose. 
 
-Why?
-For your business partners, family members, or  friends, background noise can be distracting, unprofessional, and make understanding difficult. What if we could remove the background noise, enabling you to focus and understand exactly what your teammate is sharing? 
+What if we could remove the background noise, enabling workers to focus and understand exactly what their teammates are sharing or explaining? There would be fewer misunderstandings and mistakes, along with faster, more efficient communication. As a result, everyone gets time back in their schedules, and less mental fatigue from all-day video-conference meetings.
 
-There would be fewer misunderstandings/mistakes and faster communication so everyone gets time back in their schedules, and less mental fatigue from all-day Zoom meetings.
-
-We're excited to share a deployed deep learning solution for real-time speech enhancement.
+Our project aims to tackle this problem by focusing on using real-time speech enhancement to improve the quality of noisy virtual calls.
 
 Data Sets:
 - [Valentini](https://datashare.is.ed.ac.uk/handle/10283/2791)
 - [Deep Noise Suppression (DNS)](https://github.com/microsoft/DNS-Challenge)
-- Mozilla Common Voice: Built into TensorFlow and PyTorch
 
 Metrics:
 - Perceptual Evaluation of Speech Quality (PESQ)
@@ -37,6 +34,17 @@ foobar.pluralize('goose') # returns 'geese'
 foobar.singularize('phenomena') # returns 'phenomenon'
 ```
 
+## Results
+
+![target_results_denoiser](https://github.com/chrispmaag/pulseaudio_speech_enhancement/blob/main/images/target_results_denoiser.jpg)
+
+For now, our main target is to approach or surpass the 3.07 PESQ score and 95% STOI achieved by the Causal DEMUCS architecture as shown in the figure below. Our initial results from training our own preliminary models on subsamples of the Valentini dataset resulted in a 1.20 PESQ score and STOI of 77%.
+
+| Dataset     | Model         | PESQ | STOI |
+|:----------- |:-------------:| ----:| ----:|
+| Valentini (mini) | DEMUCS   | 1.20 | 0.77 |
+| Valentini (target on full dataset)| DEMUCS | 3.07 | 0.95 |
+
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -50,7 +58,7 @@ Contributions are what make the open source community such an amazing place to b
 ## Contact
 
 - Leo Tanenbaum-Diaz
-- Chris Pontarolo-Maag - [@twitter_handle](https://twitter.com/twitter_handle) - chrispmaag@gmail.com
+- Chris Pontarolo-Maag - [@chrispmaag](https://twitter.com/chrispmaag) - chrispmaag@gmail.com
 - Jorge Sierra - [@sierrajur](https://twitter.com/sierrajur) - jsierra.jur@gmail.com
 
 ## License
