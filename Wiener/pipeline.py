@@ -1,6 +1,29 @@
 import numpy as np
 import soundfile as sf
 import librosa
+import os
+os.chdir("..")
+
+from utils.metrics import pesq_score, stoi_score
+
+def wiener_metrics_pipeline(_X: np.array, sr=16000):
+    """np array pipeline for denoising and recording results.
+
+    Params:
+        _X (np.array): array of multiple time series to denoise.
+        sr (int): sample rate of time series.
+
+    Returns:
+        np array: PESQ and STOI results of each time series. [[pesq, stoi], [...]]
+    """
+    res = np.empty((len(_X), 2), dtype=float64)
+    for i, x in enumerate(_X):
+        y, _ = vocal_separation(x, sr)
+        p = pesq_score(x, y, samplerate=sr)
+        st= stoi_score(x, y, samplerate=sr)
+        res[i] = [p, st]
+
+    return res
 
 def wiener_pipeline(filepath, outpath, sample_rate=16000):
     """File to file pipeline for vocal denoising.

@@ -1,3 +1,7 @@
-sounddevice==0.4.1
-pesq==0.0.2
-pystoi==0.3.3
+sounddevice		== 0.4.1
+pesq			== 0.0.2
+pystoi			== 0.3.3
+soundfile		>= 0.10.3.post1
+librosa			>= 0.8.0
+numpy			>= 1.18.5
+

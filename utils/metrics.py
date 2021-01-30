@@ -2,7 +2,6 @@ import numpy as np
 from pesq import pesq
 from pystoi import stoi
 
-
 def pesq_score(y_true: np.array, y_pred: np.array, samplerate=16000, mode='wb') -> float:
     """Computes the Perceptual Evaluation of Speech Quality metric between `y_true` and `y_pred`.
 
