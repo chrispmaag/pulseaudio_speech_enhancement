@@ -5,3 +5,4 @@ __pycache*
 aws
 data
 .vscode
+checkpoints
