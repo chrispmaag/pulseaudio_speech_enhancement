@@ -1,8 +1,6 @@
 import numpy as np
 import soundfile as sf
 import librosa
-import os
-os.chdir("..")
 
 from utils.metrics import pesq_score, stoi_score
 
@@ -74,7 +72,8 @@ def vocal_separation(y, sr):
     S_filter = librosa.decompose.nn_filter(S_full,
                                            aggregate=np.median,
                                            metric='cosine',
-                                           width=int(librosa.time_to_frames(2, sr=sr)))
+                                           k=2)
+                                           #width=int(librosa.time_to_frames(2, sr=sr)))
 
     # The output of the filter shouldn't be greater than the input
     # if we assume signals are additive.  Taking the pointwise minimium

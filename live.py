@@ -1,3 +1,4 @@
+import warnings
 import argparse
 import sys
 
@@ -60,7 +61,6 @@ def query_devices(device, kind):
         sys.exit(1)
     return caps
 
-
 def main():
     args = get_parser().parse_args()
 
@@ -83,19 +83,26 @@ def main():
     stream_in.start()
     stream_out.start()
 
-    length = 256
-    first = True
+    length = 1024
+
+    warnings.filterwarnings("ignore")
+
     while True:
         try:
             frame, overflow = stream_in.read(length)
 
+            frame = np.mean(frame, axis=0)
             # do the thing:
-            out = frame
+            out, _ = vocal_separation(frame, args.sample_rate)
+
+#            out = out/abs(out).max()
+#            out *= 2
 
             # compressor
             out = 0.99 * np.tanh(out)
-
             out = np.clip(out, -1, 1)
+            out = np.repeat(out[:, np.newaxis], 2, axis=1)
+            print(out[0])
             underflow = stream_out.write(out)
         except KeyboardInterrupt:
             print("Stopping")
