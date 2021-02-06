@@ -19,8 +19,8 @@ TRAINING_SET_SIZE = 11572
 TEST_SET_SIZE = 824
 FRAME_RATE = 48000
 
-WINDOW_LENGTH_MILISECONDS = 40
-WINDOW_SHIFTS_MILISECONDS = 16
+WINDOW_LENGTH_MILISECONDS = 10
+WINDOW_SHIFTS_MILISECONDS = 10
 
 TRAIN_SET_NOISY = './data/noisy_trainset_28spk_wav/*.wav'
 TRAIN_SET_CLEAN = './data/clean_trainset_28spk_wav/*.wav'
@@ -28,7 +28,7 @@ TRAIN_SET_CLEAN = './data/clean_trainset_28spk_wav/*.wav'
 TEST_SET_NOISY  = './data/noisy_testset_wav/*.wav'
 TEST_SET_CLEAN  = './data/clean_testset_wav/*.wav'
 
-EPOCHS = 2
+EPOCHS = 100
 
 # In[3]:
 
@@ -114,14 +114,14 @@ def window_dataset(path_to_noisy_files: np.array, path_to_clean_files: np.array,
 
     return dataset
 
-train_generator = window_dataset(
+train_generator = window_generator(
     path_to_noisy_files=TRAIN_SET_NOISY,
     path_to_clean_files=TRAIN_SET_CLEAN,
     shift=sequence_shift,
     length=sequence_length
 )
 
-test_generator = window_dataset(
+test_generator = window_generator(
     path_to_noisy_files=TEST_SET_NOISY,
     path_to_clean_files=TEST_SET_CLEAN,
     shift=sequence_shift,
@@ -141,11 +141,13 @@ def RNN_model(sequence_length):
     Returns:
         [type]: [description]
     """
-    model = tf.keras.models.Sequential([
-        tf.keras.layers.Lambda(lambda x: tf.expand_dims(x, axis=-1), input_shape=[None]),
-        tf.keras.layers.SimpleRNN(sequence_length, return_sequences=True),
-        tf.keras.layers.SimpleRNN(sequence_length),
-        tf.keras.layers.Dense(1)])
+    mirrored_strategy = tf.distribute.MirroredStrategy()}
+    with mirrored_strategy.scope():
+        model = tf.keras.models.Sequential([
+            tf.keras.layers.Lambda(lambda x: tf.expand_dims(x, axis=-1), input_shape=[None]),
+            tf.keras.layers.SimpleRNN(sequence_length, return_sequences=True),
+            tf.keras.layers.SimpleRNN(sequence_length),
+            tf.keras.layers.Dense(1)])
     optimizer = tf.keras.optimizers.SGD(lr=1e-8, momentum=0.9)
     model.compile(loss=tf.keras.losses.Huber(), optimizer=optimizer, metrics=['mae'])
     return model
@@ -172,7 +174,7 @@ early_stopping = tf.keras.callbacks.EarlyStopping(
 )
 
 checkpoints = tf.keras.callbacks.ModelCheckpoint(
-    filepath='./checkpoints/1/weights.{epoch:02d}-{val_loss:.5f}.hdf5',
+    filepath='./checkpoints/weights.{epoch:02d}-{val_loss:.5f}.hdf5',
     save_weights_only=False,
     save_best_only=False
 )
