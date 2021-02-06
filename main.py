@@ -5,7 +5,7 @@ import sys
 import sounddevice as sd
 import numpy as np
 
-from wiener.pipeline import vocal_separation
+from live.utils import get_pipe
 
 def get_parser():
     parser = argparse.ArgumentParser(
@@ -83,27 +83,28 @@ def main():
     stream_in.start()
     stream_out.start()
 
-    length = 1024
+    length = 256
 
     warnings.filterwarnings("ignore")
 
+    print("Listening...")
     while True:
         try:
-            frame, overflow = stream_in.read(length)
+            dry_signal, overflow = stream_in.read(length)
+            dry_signal = np.mean(dry_signal, axis=1)
 
-            frame = np.mean(frame, axis=0)
             # do the thing:
-            out, _ = vocal_separation(frame, args.sample_rate)
+            #out, _ = vocal_separation(dry_signal, args.sample_rate)
+            out = process_signal(dry_signal)
 
-#            out = out/abs(out).max()
-#            out *= 2
-
+            out = args.dry * dry_signal + (1 - args.dry) * out
+    
             # compressor
             out = 0.99 * np.tanh(out)
+
             out = np.clip(out, -1, 1)
             out = np.repeat(out[:, np.newaxis], 2, axis=1)
-            print(out[0])
-            underflow = stream_out.write(out)
+            stream_out.write(out)
         except KeyboardInterrupt:
             print("Stopping")
             break
