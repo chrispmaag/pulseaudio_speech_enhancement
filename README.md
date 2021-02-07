@@ -38,12 +38,22 @@ foobar.singularize('phenomena') # returns 'phenomenon'
 
 ![target_results_denoiser](https://github.com/chrispmaag/pulseaudio_speech_enhancement/blob/main/images/target_results_denoiser.jpg)
 
-For now, our main target is to approach or surpass the 3.07 PESQ score and 95% STOI achieved by the Causal DEMUCS architecture as shown in the figure below. Our initial results from training our own preliminary models on subsamples of the Valentini dataset resulted in a 1.20 PESQ score and STOI of 77%.
+Results on the Valentini dataset.
 
-| Dataset     | Model         | PESQ | STOI |
-|:----------- |:-------------:| ----:| ----:|
-| Valentini (mini) | DEMUCS   | 1.20 | 0.77 |
-| Valentini (target on full dataset)| DEMUCS | 3.07 | 0.95 |
+| Model         | PESQ | STOI (%) |
+|:-------------:| ----:| ----:    |
+| Wiener*       | 2.22 | 93       |
+| SEGAN**       | 2.19 | 93.12    |
+| SASEGAN**     | 2.36 | 03.32    |
+| Wave U-Net*   | 2.40 | -        |
+| DEMUCS        | 2.96 | 94.21    |
+
+
+### Samples from the Valentini test set
+
+Coming soon.
+
+Noisy: Enhanced:
 
 ## Contributing
 
