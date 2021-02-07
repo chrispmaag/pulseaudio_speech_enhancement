@@ -48,6 +48,8 @@ Results on the Valentini dataset.
 | Wave U-Net*   | 2.40 | -        |
 | DEMUCS        | 2.96 | 94.21    |
 
+* Results from Table 1 of Denoiser paper
+** Results from Table 1 of SASEGAN paper
 
 ### Samples from the Valentini test set
 
