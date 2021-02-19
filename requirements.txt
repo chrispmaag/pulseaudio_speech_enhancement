@@ -9,3 +9,4 @@ python-multipart==0.0.5
 aiofiles        ==0.6.0
 torch           ==1.7.1
 torchaudio      ==0.7.2
+uvicorn==0.13.3
