@@ -4,4 +4,8 @@ pystoi			== 0.3.3
 soundfile		>= 0.10.3.post1
 librosa			>= 0.8.0
 numpy			>= 1.18.5
-
+fastapi         ==0.63.0
+python-multipart==0.0.5
+aiofiles        ==0.6.0
+torch           ==1.7.1
+torchaudio      ==0.7.2
