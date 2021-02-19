@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <title>PulseAudio</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+
+<body>
+    <h1>PulseAudio Speech Enhancement</h1>
+    <h2>Result Page</h2>
+
+    <div class="row">
+        <div class="column">
+            <h2>Noisy Audio</h2>
+            <img src="../static/{{request_id}}-noisy.png" alt="Snow" style="width:100%">
+            <audio controls>
+                <source src="../static/{{request_id}}-noisy.wav" type="audio/wav">
+                <!-- <source src="../static/testing_p232_001.wav" type="audio/wav"> -->
+            </audio>
+        </div>
+        <div class="column">
+            <h2>Enhanced Audio</h2>
+            <img src="../static/{{request_id}}-enhanced.png" alt="Forest" style="width:100%">
+            <audio controls>
+                <source src="../static/{{request_id}}-enhanced.wav" type="audio/wav">
+            </audio>
+        </div>
+    </div>
+</body>
+
+</html>
