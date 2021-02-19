@@ -1,0 +1,13 @@
+h1 {
+    /* color: green; */
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+  padding: 5px;
+  /* text-align: center; */
+}
