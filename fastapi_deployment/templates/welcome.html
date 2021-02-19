@@ -1,0 +1,19 @@
+<html>
+
+<head>
+    <title>PulseAudio</title>
+    <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    <h1>PulseAudio Speech Enhancement</h1>
+    <h2>Please upload a .wav audio file</h2>
+
+            <!-- <form action="/files/" enctype="multipart/form-data" method="POST"> -->
+            <form action="/result/" enctype="multipart/form-data" method="POST">
+                <input type="file" id="myFile" name="file" multiple>
+                <input type="submit" value="Enhance audio!">
+            </form>
+</body>
+
+</html>
