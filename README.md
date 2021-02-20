@@ -3,6 +3,8 @@
 
 ![deployed_result_1](https://github.com/chrispmaag/pulseaudio_speech_enhancement/blob/main/images/deployed_result_1.jpg)
 
+Check out our deployed project at [pulseaudio.duckdns.org](pulseaudio.duckdns.org)!
+
 For your business partners, family members, or friends, background noise in conference calls can be distracting, unprofessional, and make understanding difficult. With working remotely becoming more common, it’s critical that people can work efficiently and productively from wherever they choose.
 
 What if we could remove the background noise, enabling workers to focus and understand exactly what their teammates are sharing or explaining? There would be fewer misunderstandings and mistakes, along with faster, more efficient communication. As a result, everyone gets time back in their schedules, and less mental fatigue from all-day video-conference meetings.
