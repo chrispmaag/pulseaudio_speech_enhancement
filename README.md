@@ -78,7 +78,7 @@ In audio clips, these differences manifest as a form of digital white noise and 
 
 Something else to keep an eye on is the sharpness of the spectrogram images. The "grainy" quality of the spectrogram images are indicative of broad-spectrum noise across the signal. Think: cars idling or a consistent breeze.
 
-Looking at the final two examples in particular, you can see a clear contrast in the sharpness of the 'clean' clip as compared with the 'enchanced' indicating that the model was unable to fully eliminate broad-spectrum noise.
+Looking at the final two examples in particular, you can see a clear contrast in the sharpness of the 'clean' clip as compared with the 'enhanced', indicating that the model was unable to fully eliminate broad-spectrum noise.
 
 ## Contributing
 
