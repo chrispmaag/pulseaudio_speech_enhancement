@@ -52,10 +52,10 @@ Results on the Valentini dataset.
 ### Samples from the Valentini test set
 
 ![good result 1](https://github.com/chrispmaag/pulseaudio_speech_enhancement/blob/main/images/p232_005_spectrogram_comparison.png)
-![good result 2](https://github.com/chrispmaag/pulseaudio_speech_enhancement/blob/main/images/p232_005_spectrogram_comparison.png)
-![good result 3](https://github.com/chrispmaag/pulseaudio_speech_enhancement/blob/main/images/p232_005_spectrogram_comparison.png)
-![bad result 1](https://github.com/chrispmaag/pulseaudio_speech_enhancement/blob/main/images/p232_005_spectrogram_comparison.png)
-![bad result 2](https://github.com/chrispmaag/pulseaudio_speech_enhancement/blob/main/images/p232_005_spectrogram_comparison.png)
+![good result 2](https://github.com/chrispmaag/pulseaudio_speech_enhancement/blob/main/images/p232_125_spectrogram_comparison.png)
+![good result 3](https://github.com/chrispmaag/pulseaudio_speech_enhancement/blob/main/images/p232_142_spectrogram_comparison.png)
+![bad result 1](https://github.com/chrispmaag/pulseaudio_speech_enhancement/blob/main/images/p257_022_spectrogram_comparison.png)
+![bad result 2](https://github.com/chrispmaag/pulseaudio_speech_enhancement/blob/main/images/p257_430_spectrogram_comparison.png)
 
 
 ## Contributing
