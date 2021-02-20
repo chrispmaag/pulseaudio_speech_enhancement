@@ -1,7 +1,7 @@
 # Pulse Audio Real-Time Speech Enhancement
-### Real-time speech enhancement for noisy calls. 
+### Real-time speech enhancement for noisy calls.
 
-For your business partners, family members, or friends, background noise in conference calls can be distracting, unprofessional, and make understanding difficult. With working remotely becoming more common, it’s critical that people can work efficiently and productively from wherever they choose. 
+For your business partners, family members, or friends, background noise in conference calls can be distracting, unprofessional, and make understanding difficult. With working remotely becoming more common, it’s critical that people can work efficiently and productively from wherever they choose.
 
 What if we could remove the background noise, enabling workers to focus and understand exactly what their teammates are sharing or explaining? There would be fewer misunderstandings and mistakes, along with faster, more efficient communication. As a result, everyone gets time back in their schedules, and less mental fatigue from all-day video-conference meetings.
 
@@ -26,13 +26,11 @@ pip install -r requirements.txt
 ## Usage
 
 ```
-python
-import foobar
+cd development
+python -m denoiser.enhance --file_location="PATH_TO_WAV"
 
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
 ```
+The enhanced audio clip will be saved in `denoiser/static`.
 
 ## Results
 
@@ -53,9 +51,8 @@ Results on the Valentini dataset.
 
 ### Samples from the Valentini test set
 
-Coming soon.
+![alt text](https://github.com/chrispmaag/pulseaudio_speech_enhancement/blob/main/images/p232_005_spectrogram_comparison.png)
 
-Noisy: Enhanced:
 
 ## Contributing
 

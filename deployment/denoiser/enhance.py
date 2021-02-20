@@ -26,17 +26,20 @@ from .utils import LogProgress
 # import pretrained
 # from utils import LogProgress
 
+import pathlib
+FILE_PATH = str(pathlib.Path(__file__).parent.absolute())
+
 logger = logging.getLogger(__name__)
 
 # adding new section for args so we can run within fastapi and not need command line args
 # Then also replaced all of the instances of args with the variable that was getting pulled from it
-model_path = '/home/jorgesierra/Projects/pulseaudio_speech_enhancement/fastapi_deployment/denoiser/best.th'
-noisy_dir = '/tmp/'
+model_path = FILE_PATH + '/best.th'
+noisy_dir = FILE_PATH
 # new option for direct file version we are testing
 
-file_location = '/home/jorgesierra/Projects/pulseaudio_speech_enhancement/samples/speech.wav'
+file_location = None
 
-out_dir = '/tmp/'
+out_dir = FILE_PATH + '/static/'
 
 noisy_json = None
 sample_rate = 16000
@@ -75,14 +78,13 @@ parser.add_argument("--batch_size", default=1, type=int, help="batch size")
 parser.add_argument('-v', '--verbose', action='store_const', const=logging.DEBUG,
                     default=logging.INFO, help="more loggging")
 # new arg for file location
-parser.add_argument('--file_location', type=str, default=None, help="file path for the .wav file")                    
+parser.add_argument('-f', '--file_location', type=str, default=None, help="file path for the .wav file")                    
 
 group = parser.add_mutually_exclusive_group()
 group.add_argument("--noisy_dir", type=str, default=None,
                    help="directory including noisy wav files")
 group.add_argument("--noisy_json", type=str, default=None,
                    help="json file including noisy wav files")
-
 
 
 def get_estimate(model, noisy, dry):
@@ -119,19 +121,12 @@ def get_dataset_fast_api_version(file_location):
     files.append((file_location, length))
     return Audioset(files, with_path=True, sample_rate=sample_rate)
 
-#def enhance(model_path, model=None, local_out_dir=None):
-# without file_location
-# def enhance(model_path, noisy_dir, out_dir, noisy_json, sample_rate,
-#             batch_size, device, num_workers, dns48, dns64, master64,
-#             dry, streaming, verbose,
-#             model=None, local_out_dir=None):
 
 # with file_location
 def enhance(model_path, noisy_dir, file_location, out_dir, noisy_json, sample_rate,
             batch_size, device, num_workers, dns48, dns64, master64,
             dry, streaming, verbose,
             model=None, local_out_dir=None):
-# def enhance(args, model=None, local_out_dir=None):
     # Load model
     if not model:
         # Relies on get_model to load from path
@@ -143,9 +138,6 @@ def enhance(model_path, noisy_dir, file_location, out_dir, noisy_json, sample_ra
         out_dir = local_out_dir
     else:
         out_dir = out_dir
-
-    # Comment out this version once switching to fast_api version
-    # dset = get_dataset(noisy_dir)
 
     # Fast API version using a file rather than a noisy_dir
     dset = get_dataset_fast_api_version(file_location)
@@ -166,30 +158,14 @@ def enhance(model_path, noisy_dir, file_location, out_dir, noisy_json, sample_ra
             save_wavs(estimate, noisy_signals, filenames, out_dir, sr=sample_rate)
 
 
-# version without command line args (but have challenge of getting the upload object path)
-# if __name__ == "__main__":
-#     # without file_location
-#     # enhance(model_path, noisy_dir, out_dir, noisy_json, sample_rate,
-#     #         batch_size, device, num_workers, dns48, dns64, master64,
-#     #         dry, streaming, verbose, local_out_dir=out_dir)
+# version with command line args
+if __name__ == "__main__":
+    args = parser.parse_args()
+    logging.basicConfig(stream=sys.stderr, level=verbose)
+    logger.debug(args)
 
-#     # with file_location
-#     enhance(model_path, noisy_dir, file_location, out_dir, noisy_json, sample_rate,
-#             batch_size, device, num_workers, dns48, dns64, master64,
-#             dry, streaming, verbose, local_out_dir=out_dir)
-
-    # enhance(args, local_out_dir=args.out_dir)
-
-# # version with command line args
-# if __name__ == "__main__":
-#     args = parser.parse_args()
-#     logging.basicConfig(stream=sys.stderr, level=verbose)
-#     logger.debug(args)
-
-#     # with file_location from args
-#     enhance(model_path, noisy_dir, args.file_location, out_dir, noisy_json, sample_rate,
-#             batch_size, device, num_workers, dns48, dns64, master64,
-#             dry, streaming, verbose, local_out_dir=out_dir)
-
-#     # enhance(args, local_out_dir=args.out_dir)
+    # with file_location from args
+    enhance(model_path, noisy_dir, args.file_location, out_dir, noisy_json, sample_rate,
+            batch_size, device, num_workers, dns48, dns64, master64,
+            dry, streaming, verbose, local_out_dir=out_dir)
 
