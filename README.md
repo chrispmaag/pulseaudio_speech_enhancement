@@ -1,5 +1,5 @@
 # Pulse Audio Real-Time Speech Enhancement
-### Real-Time Speech Enhancement for a Better Workflow.
+### Real-Time Speech Enhancement for a Better Workflow
 
 ![deployed_result_1](https://github.com/chrispmaag/pulseaudio_speech_enhancement/blob/main/images/deployed_result_1.jpg)
 
