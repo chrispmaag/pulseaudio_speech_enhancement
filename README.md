@@ -1,5 +1,5 @@
 # Pulse Audio Real-Time Speech Enhancement
-### Real-time speech enhancement for noisy calls.
+### Real-Time Speech Enhancement for a Better Workflow.
 
 For your business partners, family members, or friends, background noise in conference calls can be distracting, unprofessional, and make understanding difficult. With working remotely becoming more common, it’s critical that people can work efficiently and productively from wherever they choose.
 
@@ -17,7 +17,7 @@ Metrics:
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install dependecies.
 
 ```
 pip install -r requirements.txt
@@ -28,7 +28,6 @@ pip install -r requirements.txt
 ```
 cd development
 python -m denoiser.enhance --file_location="PATH_TO_WAV"
-
 ```
 The enhanced audio clip will be saved in `denoiser/static`.
 
@@ -53,13 +52,21 @@ Results on the Valentini dataset.
 
 (Github Markdown doesn't support embeding audio, so this will have to do.)
 
-![good result 1](https://github.com/chrispmaag/pulseaudio_speech_enhancement/blob/main/images/p232_005_spectrogram_comparison.png)
+Here we have a few side-by-side spectrogram comparisons of the results of our model. You can see that in general our model tends to perform much like a traditional gate would. In sections devoid of speech, the model effectively removes extraneous sounds. However, it also seems to be overcompensating in the higher frequency ranges during sections of speech.
 
+Compare the 'clean' and 'enhanced' spectrograms for each example and you'll see noticably more activity in the upper regions of speech segments (corresponding to higher frequency sounds).
+
+In audio clips, these differences manifest as a form of digital white noise and sharpness in the higher registers.
+
+![good result 1](https://github.com/chrispmaag/pulseaudio_speech_enhancement/blob/main/images/p232_005_spectrogram_comparison.png)
 ![good result 2](https://github.com/chrispmaag/pulseaudio_speech_enhancement/blob/main/images/p232_125_spectrogram_comparison.png)
 ![good result 3](https://github.com/chrispmaag/pulseaudio_speech_enhancement/blob/main/images/p232_142_spectrogram_comparison.png)
 ![bad result 1](https://github.com/chrispmaag/pulseaudio_speech_enhancement/blob/main/images/p257_022_spectrogram_comparison.png)
 ![bad result 2](https://github.com/chrispmaag/pulseaudio_speech_enhancement/blob/main/images/p257_430_spectrogram_comparison.png)
 
+Something else to keep an eye on is the sharpness of the spectrogram images. The "grainy" quality of the spectrogram images are indicative of broad-spectrum noise across the signal. Think: cars idling or a consistent breeze.
+
+Looking at the final two examples in particular, you can see a clear contrast in the sharpness of the 'clean' clip as compared with the 'enchanced' indicating that the model was unable to fully eliminate broad-spectrum noise.
 
 ## Contributing
 
