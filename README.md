@@ -66,7 +66,7 @@ Results on the Valentini dataset.
 
 Here we have a few side-by-side spectrogram comparisons of the results of our model. You can see that in general our model tends to perform much like a traditional gate would. In sections devoid of speech, the model effectively removes extraneous sounds. However, it also seems to be overcompensating in the higher frequency ranges during sections of speech.
 
-Compare the 'clean' and 'enhanced' spectrograms for each example and you'll see noticably more activity in the upper regions of speech segments (corresponding to higher frequency sounds).
+Compare the 'clean' and 'enhanced' spectrograms for each example and you'll see noticeably more activity in the upper regions of speech segments (corresponding to higher frequency sounds).
 
 In audio clips, these differences manifest as a form of digital white noise and sharpness in the higher registers.
 
