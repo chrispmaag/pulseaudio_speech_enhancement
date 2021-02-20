@@ -51,7 +51,11 @@ Results on the Valentini dataset.
 
 ### Samples from the Valentini test set
 
-![alt text](https://github.com/chrispmaag/pulseaudio_speech_enhancement/blob/main/images/p232_005_spectrogram_comparison.png)
+![good result 1](https://github.com/chrispmaag/pulseaudio_speech_enhancement/blob/main/images/p232_005_spectrogram_comparison.png)
+![good result 2](https://github.com/chrispmaag/pulseaudio_speech_enhancement/blob/main/images/p232_005_spectrogram_comparison.png)
+![good result 3](https://github.com/chrispmaag/pulseaudio_speech_enhancement/blob/main/images/p232_005_spectrogram_comparison.png)
+![bad result 1](https://github.com/chrispmaag/pulseaudio_speech_enhancement/blob/main/images/p232_005_spectrogram_comparison.png)
+![bad result 2](https://github.com/chrispmaag/pulseaudio_speech_enhancement/blob/main/images/p232_005_spectrogram_comparison.png)
 
 
 ## Contributing
