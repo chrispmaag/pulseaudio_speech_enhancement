@@ -54,23 +54,6 @@ def upload_file():
 
         return render_template('result.html', request_id=request_id)
 
-# @app.get("/items/{id}", response_class=HTMLResponse)
-# async def read_item(request: Request, id: str):
-#     return templates.TemplateResponse("item.html", {"request": request, "id": id})
-
-# holding area
-# @app.post("/files/")
-# async def create_file(file: bytes = File(...)):
-#     return {"file_size": len(file)}
-
-
-# @app.post("/uploadfile/")
-# async def create_upload_file(file: UploadFile = File(...)):
-#     return {"filename": file.filename}
-
-# @app.get("/result/", response_class=HTMLResponse)
-# async def read_item(request: Request):
-#     return templates.TemplateResponse("result.html", {"request": request})
 
 if __name__ == '__main__':
     # This is used when running locally only. When deploying to Google App
