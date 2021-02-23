@@ -3,6 +3,8 @@ from librosa import display
 from librosa.core import audio
 import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')
 
 def create_spectrogram(request_id, audio_type='noisy'):
     # Librosa will resample down to 16000 with this arg
